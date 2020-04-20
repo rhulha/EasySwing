@@ -91,6 +91,11 @@ public class EasyTable implements Scrollable {
 		// model.setValueAt(model, 0, 0)
 	}
 
+	public void addRow(Object... values) {
+		DefaultTableModel model = (DefaultTableModel) table.getModel();
+		model.addRow(values);
+	}
+
 	public void appendRow(Object... values) {
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.addRow(values);
@@ -218,6 +223,10 @@ public class EasyTable implements Scrollable {
 	public void incFont(int n) {
 		Font font = table.getFont();
 		table.setFont(font.deriveFont(font.getStyle(), font.getSize()+n));
+	}
+
+	public int getRowCount() {
+		return table.getRowCount();
 	}
 
 }
