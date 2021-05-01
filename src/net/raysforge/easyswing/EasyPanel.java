@@ -2,17 +2,10 @@ package net.raysforge.easyswing;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 public class EasyPanel implements Scrollable {
@@ -107,11 +100,32 @@ public class EasyPanel implements Scrollable {
 		this.center = c;
 		this.panel.add(c, BorderLayout.CENTER);
 	}
-	
+
 	public JComponent getCenterComponent() {
 		return center;
 	}
-	
-	
+
+	public JComponent[] addEasyFormItem(String label) {
+		
+		JComponent[] comps = new JComponent[3];
+		
+		panel.setLayout(new FlowLayout());
+		JLabel l = new JLabel(label);
+		JTextField tf = new JTextField(label);
+		tf.setPreferredSize(new Dimension(600, 20));
+		panel.add(l);
+		panel.add(tf);
+		JTextField date = new JTextField("date");
+		date.setPreferredSize(new Dimension(270, 20));
+		panel.add(date);
+		JButton button = new JButton("Submit");
+		panel.add(button);
+		
+		comps[0] = tf;
+		comps[1] = date;
+		comps[2] = button;
+		
+		return comps;
+	}
 
 }
