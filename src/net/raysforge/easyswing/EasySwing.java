@@ -284,4 +284,8 @@ public class EasySwing {
 		return frame.getJMenuBar();
 	}
 
+    public void showAlert(String string) {
+        JOptionPane.showMessageDialog(frame, string);
+    }
+
 }

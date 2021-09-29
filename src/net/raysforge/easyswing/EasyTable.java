@@ -34,7 +34,17 @@ public class EasyTable implements Scrollable {
 		init();
 	}
 
-	public EasyTable() {
+    public static void main(String[] args) {
+        EasySwing es = new EasySwing("TestEasyTable", 800, 600);
+        EasyTable et = es.setTableAsMainContent();
+        et.addColumn("Key");
+        et.addColumn("Value");
+        et.setValue("test-0.0", 0, 0);
+        et.setValue("test-10.10", 10, 1);
+        es.show();
+    }
+
+    public EasyTable() {
 		init();
 	}
 
@@ -133,16 +143,6 @@ public class EasyTable implements Scrollable {
 			model.setColumnCount(0);
 		}
 
-	}
-
-	public static void main(String[] args) {
-		EasySwing es = new EasySwing("TestEasyTable", 800, 600);
-		EasyTable et = es.setTableAsMainContent();
-		et.addColumn("Key");
-		et.addColumn("Value");
-		et.setValue("test-0.0", 0, 0);
-		et.setValue("test-10.10", 10, 1);
-		es.show();
 	}
 
 	public int getSelectedRow() {
